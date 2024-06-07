@@ -4,7 +4,7 @@ set -e
 
 # Install necessary packages
 apt-get update
-apt-get install -y xorriso genisoimage isolinux squashfs-tools
+apt-get install -y xorriso genisoimage isolinux squashfs-tools wget git git-lfs python3-pip python3-venv
 
 # Download the Ubuntu ISO
 UBUNTU_ISO_URL="https://releases.ubuntu.com/20.04/ubuntu-20.04.4-desktop-amd64.iso"
@@ -24,9 +24,25 @@ rsync -a $MOUNT_DIR/ $WORK_DIR
 # Unmount the ISO
 umount $MOUNT_DIR
 
-# Execute the touch command
-echo "Creating hi.txt file in home directory"
-touch ~/hi.txt
+# Clone openpilot
+echo "Cloning openpilot repository"
+git lfs install
+git clone --recurse-submodules https://github.com/commaai/openpilot.git $WORK_DIR/openpilot
+
+# Run the setup script
+echo "Running setup script"
+cd $WORK_DIR/openpilot
+git lfs pull
+tools/ubuntu_setup.sh
+
+# Activate a shell with the Python dependencies installed
+echo "Setting up Python environment with poetry"
+pip3 install poetry
+poetry shell
+
+# Build openpilot
+echo "Building openpilot"
+scons -u -j$(nproc)
 
 # Customize the ISO
 # Example: Add a preseed file for automated installation
