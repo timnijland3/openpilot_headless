@@ -14,7 +14,7 @@ if [ -e "~/openpilot_headless/install/ubuntu.txt" ]; then
     echo "Ubuntu setup has yet been completed."
 else
     # Install all needed Ubuntu Dependecies
-    $DIR/ubuntu.sh
+    $DIR/ubuntu.sh >>  $DIR/../logs/ubuntu.log 2>&1
 fi
 
 # Check if a "OpenPilot" folder is yet existing
@@ -23,6 +23,7 @@ if [ -e "~/openpilot" ]; then
     exit 1
 else
     # Clone OP Library
+    cd ~/
     git clone $repo
 fi
 
@@ -35,7 +36,7 @@ if [ -e "~/openpilot_headless/install/python.txt" ]; then
 else
     # Install all needed Python Dependecies
     cd ~/openpilot
-    $DIR/python.sh
+    $DIR/python.sh >> $DIR/../logs/python.log 2>&1
 fi
 
 #Start poetry shell
