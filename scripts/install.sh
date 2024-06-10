@@ -25,7 +25,7 @@ if [ -e "~/openpilot" ]; then
     exit 1
 else
     # Clone OP Library
-    echo "Start cloning the chosen repository:"
+    echo "Start cloning the chosen repository..."
     cd ~/
     git clone $repo >> $DIR/../logs/git_clone.log 2>&1
     git lfs pull
@@ -42,7 +42,7 @@ else
     # Install all needed Python Dependecies
     echo "Start installing Python dependecies..."
     cd ~/openpilot
-    $DIR/python.sh >> $DIR/../logs/python.log 2>&
+    $DIR/python.sh #>> $DIR/../logs/python.log 2>&
     echo "Done."
 fi
 
