@@ -7,7 +7,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 repo=${1:-"https://github.com/commaai/openpilot.git"}
 
 # Now, you can use the variable
-echo "The used Repo will be: $repo"
+echo "This Openpilot repository will be installed: $repo"
 
 # Check if ubuntu dependecies are already installed.
 if [ -e "~/openpilot_headless/install/ubuntu.txt" ]; then
