@@ -129,5 +129,6 @@ if [ -f "/etc/os-release" ]; then
         install_ubuntu_lts_latest_requirements
       fi
   esac
+fi
 
 touch ~/openpilot_headless/install/ubuntu.txt
