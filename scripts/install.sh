@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-# set -e
+set -e
 
-# DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-
-# # NOTE: this is used in a docker build, so do not run any scripts here.
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 # Get GitHub repo of the chosen OpenPilot fork
 repo=${1:-"https://github.com/commaai/openpilot.git"}
@@ -13,11 +11,11 @@ repo=${1:-"https://github.com/commaai/openpilot.git"}
 echo "The used Repo will be: $repo"
 
 # Check if ubuntu dependecies are already installed.
-if [ -e "/path/to/your/file" ]; then
+if [ -e "~/openpilot_headless/install/ubuntu.txt" ]; then
     echo "Ubuntu setup has yet been completed."
 else
     # Install all needed Ubuntu Dependecies
-    $DIR/scripts/ubuntu.sh
+    $DIR/ubuntu.sh
 fi
 
 # Check if a "OpenPilot" folder is yet existing
@@ -33,14 +31,16 @@ fi
 cd ~/openpilot
 
 # Check if python dependecies are already installed.
-if [ -e "/path/to/your/file" ]; then
+if [ -e "~/openpilot_headless/install/python.txt" ]; then
     echo "Python setup has yet been completed."
 else
     # Install all needed Python Dependecies
-    $DIR/scripts/python.sh
+    cd ~/openpilot
+    $DIR/python.sh
 fi
 
 #Start poetry shell
+cd ~/openpilot
 poetry shell
 
 #Build openpilot

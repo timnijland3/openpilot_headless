@@ -80,3 +80,5 @@ if [ "$(uname)" != "Darwin" ] && [ -e "$ROOT/.git" ]; then
   $RUN pre-commit install
   $RUN git submodule foreach pre-commit install
 fi
+
+touch ~/openpilot_headless/install/python.txt
