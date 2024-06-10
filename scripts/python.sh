@@ -2,7 +2,7 @@
 set -e
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-ROOT=$DIR/../
+ROOT=~
 cd $ROOT
 
 RC_FILE="${HOME}/.$(basename ${SHELL})rc"

@@ -27,7 +27,7 @@ else
     # Clone OP Library
     echo "Start cloning the chosen repository..."
     cd ~/
-    git clone $repo >> $DIR/../logs/git_clone.log 2>&1
+    git clone --recurse-submodules $repo >> $DIR/../logs/git_clone.log 2>&1
     # git lfs pull
     echo "Done."
 fi
