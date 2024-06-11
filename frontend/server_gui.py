@@ -52,7 +52,7 @@ def capture_image(camera_id):
     ret, frame = cap.read()
     if ret:
         filename = f'camera_{camera_id}.jpg'
-        cv2.putText(frame, f'CAMERA_ID: {camera_id}', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
+        cv2.putText(frame, f'CAM: {camera_id}', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
         cv2.imwrite(filename, frame)
     cap.release()
     return filename
