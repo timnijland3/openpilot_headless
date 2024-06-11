@@ -15,13 +15,13 @@ poetry shell
 scons -u -j$(nproc)
 
 
-# wget -qO - http://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
-# echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
-# sudo apt update
-# sudo apt install rocm-dkms
-# sudo usermod -aG video $USER
-# sudo usermod -aG render $USER
-# sudo reboot
+wget -qO - http://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
+echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
+sudo apt update -y
+sudo apt install -y rocm-dkms
+sudo usermod -aG video $USER
+sudo usermod -aG render $USER
+sudo reboot
 # cd ~/openpilot
 # poetry shell
 # USE_WEBCAM=1 scons -j$(nproc)
