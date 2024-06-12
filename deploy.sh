@@ -9,8 +9,8 @@ echo "Y" | tools/ubuntu_setup.sh
 source ~/.bashrc
 cd ~/openpilot
 git lfs pull
-wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu66_66.1-2ubuntu2_amd64.deb
-sudo dpkg -i libicu66_66.1-2ubuntu2_amd64.deb
+#wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu66_66.1-2ubuntu2_amd64.deb
+#sudo dpkg -i libicu66_66.1-2ubuntu2_amd64.deb
 poetry shell
 scons -u -j$(nproc)
 
