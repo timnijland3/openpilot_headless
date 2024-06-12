@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 sudo apt-get update -y
 sudo apt-get upgrade -y
-sudo apt-get install -y git git-lfs wget gnupg2
+sudo apt-get install -y git git-lfs wget gnupg2 python3-pip
 cd ~
-git clone --recurse-submodules https://github.com/commaai/openpilot.git
+git clone --recurse-submodules https://github.com/navistonks/openpilot.git
 cd ~/openpilot
+git lfs pull
 echo "Y" | tools/ubuntu_setup.sh
 source ~/.bashrc
 cd ~/openpilot
-git lfs pull
-wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu66_66.1-2ubuntu2_amd64.deb
-sudo dpkg -i libicu66_66.1-2ubuntu2_amd64.deb
-poetry shell
-scons -u -j$(nproc)
+#wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu66_66.1-2ubuntu2_amd64.deb
+#sudo dpkg -i libicu66_66.1-2ubuntu2_amd64.deb
+#poetry shell
+#scons -u -j$(nproc)
 
 
 #wget -qO - http://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
