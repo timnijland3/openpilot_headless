@@ -9,19 +9,19 @@ echo "Y" | tools/ubuntu_setup.sh
 source ~/.bashrc
 cd ~/openpilot
 git lfs pull
-#wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu66_66.1-2ubuntu2_amd64.deb
-#sudo dpkg -i libicu66_66.1-2ubuntu2_amd64.deb
+wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu66_66.1-2ubuntu2_amd64.deb
+sudo dpkg -i libicu66_66.1-2ubuntu2_amd64.deb
 poetry shell
 scons -u -j$(nproc)
 
 
-wget -qO - http://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
-echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
-sudo apt update -y
-sudo apt install -y rocm-dkms
-sudo usermod -aG video $USER
-sudo usermod -aG render $USER
-sudo reboot
+#wget -qO - http://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
+#echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
+#sudo apt update -y
+#sudo apt install -y rocm-dkms
+#sudo usermod -aG video $USER
+#sudo usermod -aG render $USER
+#sudo reboot
 # cd ~/openpilot
 # poetry shell
 # USE_WEBCAM=1 scons -j$(nproc)
@@ -30,4 +30,4 @@ sudo reboot
 #NOSENSOR=1 USE_WEBCAM=1 ./manager.py
 
 
-https://github.com/BBBmau/openpilot/tree/new-ubuntu-setup-flow/tools
+#https://github.com/BBBmau/openpilot/tree/new-ubuntu-setup-flow/tools
