@@ -3,8 +3,8 @@ sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get install -y git git-lfs wget gnupg2 python3-pip qml-module-qtquick2
 cd ~
-# git clone --recurse-submodules https://github.com/navistonks/openpilot.git
-git clone --recurse-submodules https://github.com/commaai/openpilot.git
+git clone --recurse-submodules https://github.com/navistonks/openpilot.git
+#git clone --recurse-submodules https://github.com/commaai/openpilot.git
 cd ~/openpilot
 git lfs pull
 echo "yyyyyyyyyyyyyyyyyy" | tools/ubuntu_setup.sh
