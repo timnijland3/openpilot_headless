@@ -6,7 +6,7 @@ cd ~
 git clone --recurse-submodules https://github.com/navistonks/openpilot.git
 cd ~/openpilot
 git lfs pull
-echo "Y" | tools/ubuntu_setup.sh
+echo "y" | tools/ubuntu_setup.sh
 source ~/.bashrc
 cd ~/openpilot
 wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu66_66.1-2ubuntu2_amd64.deb
